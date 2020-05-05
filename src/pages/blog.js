@@ -16,11 +16,16 @@ const Back = styled.p`
 const Posts = styled.ul`
   list-style-type: none;
   margin: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
 `;
 
 const Post = styled.li`
   padding-bottom: 40px;
   margin-bottom: 2em;
+  width: 70%;
 `;
 
 const Title = styled.h2`
