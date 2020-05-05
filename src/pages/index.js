@@ -4,9 +4,9 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 // import "./index.css";
 const IndexPage = () => (
-  <Layout>
+  <Layout style={{backgroundColor: '#eb4634'}}>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <div className="home">
+    <div >
       <h1>Hello There</h1>
       <p>Welcome my awesome blog</p>
       <div>
