@@ -13,26 +13,14 @@ const Back = styled.p`
   text-decoration: none;
 `;
 
-// list-style-type: none;
-//   margin: 0;
-
-const Posts = styled.div`
-    display: flex;
-    width: 100%;
-    margin-bottom: 0px;
-    flex-wrap: wrap;
-    margin-top: 0px;
-    height: unset;
-    
+const Posts = styled.ul`
+  list-style-type: none;
+  margin: 0;
 `;
 
-// padding-bottom: 40px;
-//   margin-bottom: 2em;
-const Post = styled.div`
-  width: 50%;
-    height: 450px;
-    margin-bottom: 90px;
-    transition-duration: 0.3s;
+const Post = styled.li`
+  padding-bottom: 40px;
+  margin-bottom: 2em;
 `;
 
 const Title = styled.h2`
@@ -130,7 +118,7 @@ const Blog = () => {
     <Layout>
       <SEO title="Blog" />
       <Back>
-        <Link to="/" style={{textDecoration: 'none'}}>Back to home</Link>
+        <Link to="/" style={{textDecoration: 'none'}}>&#8249;Back</Link>
       </Back>
       <Posts>
         {data.allContentfulBlogPost.edges.map(edge => {

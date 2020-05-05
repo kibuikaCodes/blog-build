@@ -4,7 +4,20 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import styled from "styled-components";
+
+const Back = styled.p`
+  font-size: 1em;
+  font-style: regular;
+  font-weight: bold;
+  text-decoration: none;
+`;
+
+const Date = styled.p`
+  margin-bottom: 1.5em;
+  font-style: italic;
+`;
 
 
 export const query = graphql`
@@ -40,12 +53,14 @@ const BlogPost = props => {
   return (
     <Layout>
       <SEO title={props.data.contentfulBlogPost.title} />
-      <Link to="/blog/">Visit the Blog Page</Link>
+      <Back>
+        <Link to="/blog/" style={{textDecoration: 'none'}}>&#8249;Back</Link>
+      </Back>
       <div className="content">
         <h1>{props.data.contentfulBlogPost.title}</h1>
-        <span className="meta">
-          Posted {props.data.contentfulBlogPost.publishDate}
-        </span>
+        <Date>
+            Posted on{` `}{props.data.contentfulBlogPost.publishDate}
+        </Date>
 
         {props.data.contentfulBlogPost.featuredImage && (
           <Img
