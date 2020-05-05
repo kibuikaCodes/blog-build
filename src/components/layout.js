@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer style={{alignItems: 'center', justifyContent: 'center', display: 'flex'}}>
+        <footer style={{alignItems: 'center', justifyContent: 'center', display: 'flex', marginTop: '5em'}}>
           © {new Date().getFullYear()}, Built with love by Kibuika.
           {/* {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a> */}
