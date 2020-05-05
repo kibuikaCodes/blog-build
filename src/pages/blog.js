@@ -13,19 +13,26 @@ const Back = styled.p`
   text-decoration: none;
 `;
 
-const Posts = styled.ul`
-  list-style-type: none;
-  margin: 0;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
+// list-style-type: none;
+//   margin: 0;
+
+const Posts = styled.div`
+    display: flex;
+    width: 100%;
+    margin-bottom: 0px;
+    flex-wrap: wrap;
+    margin-top: 0px;
+    height: unset;
+    
 `;
 
-const Post = styled.li`
-  padding-bottom: 40px;
-  margin-bottom: 2em;
-  width: 70%;
+// padding-bottom: 40px;
+//   margin-bottom: 2em;
+const Post = styled.div`
+  width: 50%;
+    height: 450px;
+    margin-bottom: 90px;
+    transition-duration: 0.3s;
 `;
 
 const Title = styled.h2`
