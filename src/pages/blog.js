@@ -13,12 +13,12 @@ const Back = styled.p`
   text-decoration: none;
 `;
 
-const Posts = styled.ul`
+const Posts = styled.div`
   list-style-type: none;
   margin: 0;
 `;
 
-const Post = styled.li`
+const Post = styled.div`
   padding-bottom: 40px;
   margin-bottom: 2em;
 `;
@@ -27,7 +27,7 @@ const Title = styled.h2`
   align-items: center;
   justify-content: center;
   display: flex;
-  font-size: 3vw;
+  font-size: 2.4vw;
   font-weight: 900;
   font-style: regular;
 `;
@@ -51,13 +51,21 @@ const FeaturedImage = styled.div`
 `;
 
 const Image = styled.img`
-  width: 70%;
-  height: 20%;
+  width: 50%;
+  height: 10%;
+`;
+
+const ExcerptDiv = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
 `;
 
 const Excerpt = styled.p`
-  margin-left: 7.5em;
-  margin-top: 2em;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 50%;
 `;
 
 const DivButton = styled.div`
@@ -141,15 +149,19 @@ const Blog = () => {
                 
                 
               )}
-
-              <Excerpt>
-                {edge.node.exerpt.childMarkdownRemark.excerpt}
-              </Excerpt>
+               <ExcerptDiv>
+                  <Excerpt>
+                    {edge.node.exerpt.childMarkdownRemark.excerpt}
+                  </Excerpt>
+                 </ExcerptDiv>             
+              
               <DivButton>
               <ReadMore primary>
                 <Link to={`/blog/${edge.node.slug}/`} style={{textDecoration: 'none'}}>Continue reading...</Link>
               </ReadMore>
               </DivButton>
+              
+              
               
             </Post>
             
