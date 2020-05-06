@@ -11,16 +11,28 @@ const Back = styled.p`
   font-style: regular;
   font-weight: bold;
   text-decoration: none;
+  float: right;
+  margin-right: 2em;
+  margin-bottom: 2em;
 `;
 
 const Posts = styled.div`
-  list-style-type: none;
-  margin: 0;
+  display: grid; 
+  margin-left: 2em;
+  margin-right: 4em;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  margin-bottom: 2em;
 `;
 
 const Post = styled.div`
   padding-bottom: 40px;
   margin-bottom: 2em;
+  transition: 0.3s;
+    width: 35rem;
+    height: 18rem;
+    margin-top: 1em;
+    margin-left: 1em;
 `;
 
 const Title = styled.h2`
@@ -123,7 +135,7 @@ const Blog = () => {
   )
 
   return (
-    <Layout>
+    <div>
       <SEO title="Blog" />
       <Back>
         <Link to="/" style={{textDecoration: 'none'}}>&#8249;Back</Link>
@@ -170,7 +182,7 @@ const Blog = () => {
         })}
       </Posts>
       
-    </Layout>
+    </div>
   )
 }
 
