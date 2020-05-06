@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Logo`,
-    description: `Write your site description here!`,
+    title: `NiceGuy`,
+    description: `A blog about a nice guy trying to navigate a not so nice world. The rejections, the failures, the successes, the "too-lates", the "not-readys". What will become of him?`,
     author: `@kibuikaCodes`,
   },
   plugins: [
