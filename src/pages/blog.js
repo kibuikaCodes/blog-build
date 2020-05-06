@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "styled-components";
 
-const Back = styled.p`
+const Back = styled.div`
   font-size: 1em;
   font-style: regular;
   font-weight: bold;
@@ -135,10 +135,10 @@ const Blog = () => {
   )
 
   return (
-    <div>
+    <div style={{margin: '2em'}}>
       <SEO title="Blog" />
       <Back>
-        <Link to="/" style={{textDecoration: 'none'}}>&#8249;Back</Link>
+        <Link to="/" style={{textDecoration: 'none', paddingBottom: '1em'}}>&#8249;Back</Link>
       </Back>
       <Posts>
         {data.allContentfulBlogPost.edges.map(edge => {
