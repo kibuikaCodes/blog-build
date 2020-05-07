@@ -2,11 +2,29 @@ import React from "react";
 import { Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-// import "./index.css";
+import styled from "styled-components";
+
+const PageContainer = styled.div`
+  margin-bottom: 2em;
+
+`;
+
+const RightContainer = styled.div`
+  float: right;
+
+`;
+
+const LeftContainer = styled.div`
+  float: left;
+
+`;
+
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <div >
+    <PageContainer >
+      <LeftContainer>
       <h1>Hello There</h1>
       <p>Welcome my awesome blog</p>
       <div>
@@ -19,7 +37,11 @@ const IndexPage = () => (
         </div>
       </div>
       <Link to="/blog/">View all posts</Link>
-    </div>
+      </LeftContainer>
+      <RightContainer>
+        hey
+      </RightContainer>
+    </PageContainer>
   </Layout>
 );
 export default IndexPage;
