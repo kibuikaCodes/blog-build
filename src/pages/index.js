@@ -5,17 +5,17 @@ import SEO from "../components/seo";
 import styled from "styled-components";
 
 const PageContainer = styled.div`
-  margin-bottom: 2em;
+margin-bottom: 2em;
 
 `;
 
 const RightContainer = styled.div`
-  float: right;
+float: right;
 
 `;
 
 const LeftContainer = styled.div`
-  float: left;
+float: left;
 
 `;
 
@@ -42,6 +42,11 @@ const IndexPage = () => (
         hey
       </RightContainer>
     </PageContainer>
+    <footer style={{alignItems: 'center', justifyContent: 'center', display: 'flex', marginTop: '5em', position: 'absolute', bottom: 0}}>
+          © {new Date().getFullYear()}, Built with love by Kibuika.
+          {/* {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a> */}
+        </footer>
   </Layout>
 );
 export default IndexPage;
