@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import styled from "styled-components";
+import Img from "gatsby-image";
+import IntroImage from "../images/indexImage.svg";
 
 const PageContainer = styled.div`
 margin-bottom: 2em;
@@ -20,15 +22,20 @@ float: left;
 `;
 
 const Title = styled.h1`
-  font-size: 5vw;
+  font-size: 6vw;
   font-style: regular;
   font-weight: 800;
+  margin-top: 1em;
 `;
 
 const Tagline = styled.p`
   font-size: 1.5vw;
   font-style: regular;
   font-family: verdana;
+  margin-top: 1em;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 `;
 
 const DivButton = styled.div`
@@ -38,7 +45,6 @@ const DivButton = styled.div`
 `;
 
 const ReadMore = styled.button`
-    
   background: white;
   font-size: 1em;
   margin: 1em;
@@ -62,6 +68,15 @@ const Footer = styled.footer`
   font-size: 1vw;
 `;
 
+const Image = styled.img`
+    height: 10em;
+    weight: 10em;
+    margin-top: 7.5em;
+    margin-right: 3em;
+    margin-left: 2em;
+    
+`;
+
 
 const IndexPage = () => (
   <Layout>
@@ -69,15 +84,18 @@ const IndexPage = () => (
     <PageContainer >
       <LeftContainer>
       <Title>Hello There</Title>
-      <Tagline>Welcome my little corner of the web.</Tagline>
+        <Tagline>Welcome my little corner of the web..<br />Welcome my little corner of the web..<br />Welcome my little corner of the web..</Tagline>
         <DivButton>
-            <ReadMore primary>
+            <ReadMore>
                 <Link to={`/blog/`} style={{textDecoration: 'none'}}>Read my stuff</Link>
             </ReadMore>
         </DivButton>
       </LeftContainer>
       <RightContainer>
-        hey
+        <Image
+            src={IntroImage}
+            alt='hey'
+          />
       </RightContainer>
     </PageContainer>
       <FooterDiv>
