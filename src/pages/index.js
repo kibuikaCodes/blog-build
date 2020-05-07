@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import styled from "styled-components";
-import Img from "gatsby-image";
 import IntroImage from "../images/indexImage.svg";
 
 const PageContainer = styled.div`
