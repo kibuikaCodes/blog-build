@@ -57,6 +57,9 @@ const FooterDiv = styled.div`
 const Footer = styled.footer`
   position: absolute;
   bottom: 0;
+  margin: 1em;
+  right: 0;
+  font-size: 1vw;
 `;
 
 

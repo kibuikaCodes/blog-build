@@ -20,6 +20,19 @@ const Date = styled.p`
   font-style: italic;
 `;
 
+const FooterDiv = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
+const Footer = styled.footer`
+  margin-top: 5em;
+  right: 0;
+  font-size: 1vw;
+`;
+
+
 
 export const query = graphql`
   query($slug: String!) {
@@ -73,6 +86,13 @@ const BlogPost = props => {
             {documentToReactComponents(props.data.contentfulBlogPost.body.json, options)}
 
       </div>
+      <FooterDiv>
+        <Footer>
+            Built with love by Kibuika.
+            {/* {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a> */}
+        </Footer>
+      </FooterDiv>
     </Layout>
   )
 }

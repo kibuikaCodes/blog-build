@@ -94,8 +94,22 @@ const ReadMore = styled.button`
   padding: 0.25em 1em;
   border: 2px solid #663399;
   border-radius: 3px;
-    
 `;
+
+const FooterDiv = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
+const Footer = styled.footer`
+  position: absolute;
+  bottom: 0;
+  margin: 1em;
+  right: 0;
+  font-size: 1vw;
+`;
+
 
 
 
@@ -181,6 +195,13 @@ const Blog = () => {
           )
         })}
       </Posts>
+      <FooterDiv>
+        <Footer>
+            Built with love by Kibuika.
+            {/* {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a> */}
+        </Footer>
+      </FooterDiv>
       
     </div>
   )
