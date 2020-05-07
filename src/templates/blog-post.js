@@ -12,6 +12,7 @@ const Back = styled.p`
   font-style: regular;
   font-weight: bold;
   text-decoration: none;
+  float: right;
 `;
 
 const Date = styled.p`
