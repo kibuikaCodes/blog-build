@@ -19,34 +19,71 @@ float: left;
 
 `;
 
+const Title = styled.h1`
+  font-size: 5vw;
+  font-style: regular;
+  font-weight: 800;
+`;
+
+const Tagline = styled.p`
+  font-size: 1.5vw;
+  font-style: regular;
+  font-family: verdana;
+`;
+
+const DivButton = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
+const ReadMore = styled.button`
+    
+  background: white;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid #663399;
+  border-radius: 3px;
+    
+`;
+
+const FooterDiv = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
+const Footer = styled.footer`
+  position: absolute;
+  bottom: 0;
+`;
+
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <PageContainer >
       <LeftContainer>
-      <h1>Hello There</h1>
-      <p>Welcome my awesome blog</p>
-      <div>
-        <div
-          style={{
-            maxWidth: `300px`,
-            margin: "0 auto 1.45rem"
-          }}
-        >
-        </div>
-      </div>
-      <Link to="/blog/">View all posts</Link>
+      <Title>Hello There</Title>
+      <Tagline>Welcome my little corner of the web.</Tagline>
+        <DivButton>
+            <ReadMore primary>
+                <Link to={`/blog/`} style={{textDecoration: 'none'}}>Read my stuff</Link>
+            </ReadMore>
+        </DivButton>
       </LeftContainer>
       <RightContainer>
         hey
       </RightContainer>
     </PageContainer>
-    <footer style={{alignItems: 'center', justifyContent: 'center', display: 'flex', marginTop: '5em', position: 'absolute', bottom: 0}}>
-          © {new Date().getFullYear()}, Built with love by Kibuika.
-          {/* {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a> */}
-        </footer>
+      <FooterDiv>
+        <Footer>
+            © {new Date().getFullYear()}, Built with love by Kibuika.
+            {/* {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a> */}
+        </Footer>
+      </FooterDiv>
   </Layout>
 );
 export default IndexPage;
