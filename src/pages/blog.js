@@ -17,22 +17,21 @@ const Back = styled.div`
 `;
 
 const Posts = styled.div`
-  display: grid; 
-  margin-left: 2em;
-  margin-right: 4em;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
-  margin-bottom: 2em;
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: center;
+ align-items: center;
+ align-content: center;
 `;
 
 const Post = styled.div`
   padding-bottom: 40px;
   margin-bottom: 2em;
   transition: 0.3s;
-    width: 35rem;
-    height: 18rem;
-    margin-top: 1em;
-    margin-left: 1em;
+  width: 30rem;
+  height: 18rem;
+  margin-top: 1em;
+  margin-left: 1em;
 `;
 
 const Title = styled.h2`

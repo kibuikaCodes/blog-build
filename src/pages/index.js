@@ -7,16 +7,18 @@ import IntroImage from "../images/indexImage.svg";
 
 const PageContainer = styled.div`
 margin-bottom: 2em;
-
+display: flex;
+flex-direction: row
 `;
 
 const RightContainer = styled.div`
-float: right;
+// float: right;
 
 `;
 
 const LeftContainer = styled.div`
-float: left;
+// float: left;
+margin-right: 2em;
 
 `;
 
