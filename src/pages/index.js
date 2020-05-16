@@ -4,6 +4,8 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import styled from "styled-components";
 import IntroImage from "../images/indexImage.svg";
+import { useStaticQuery, graphql } from "gatsby"
+
 
 const PageContainer = styled.div`
 margin-bottom: 2em;
@@ -78,8 +80,124 @@ const Image = styled.img`
     
 `;
 
+// testing
+const Posts = styled.div`
+ display: flex;
+ flex-flow: column wrap;
+ justify-content: space-evenly;
+ align-items: center;
+ align-content: center;
+`;
 
-const IndexPage = () => (
+const Post = styled.div`
+  padding-bottom: 40px;
+  margin-bottom: 16em;
+  transition: 0.3s;
+  width: 60rem;
+  height: 18rem;
+  margin-top: 1em;
+ 
+`;
+
+// const Title = styled.h2`
+//   align-items: center;
+//   justify-content: center;
+//   display: flex;
+//   font-size: 2.4vw;
+//   font-weight: 900;
+//   font-style: regular;
+// `;
+
+const Date = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
+const CreatedAt = styled.span`
+  margin-top: .0009em;
+  font-size: .7em;
+  font-style: italic;
+`;
+
+const FeaturedImage = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
+// const Image = styled.img`
+//   width: 50%;
+//   height: 10%;
+// `;
+
+const ExcerptDiv = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
+const Excerpt = styled.p`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 50%;
+`;
+
+// const DivButton = styled.div`
+//   align-items: center;
+//   justify-content: center;
+//   display: flex;
+// `;
+
+// const ReadMore = styled.button`
+    
+//   background: white;
+//   font-size: 1em;
+//   margin: 1em;
+//   padding: 0.25em 1em;
+//   border: 2px solid #663399;
+//   border-radius: 3px;
+// `;
+
+
+
+const IndexPage = () => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        allContentfulBlogPost(sort: {fields: publishDate, order: DESC}) {
+          edges {
+            node {
+              id
+              exerpt {
+                childMarkdownRemark {
+                  excerpt(pruneLength: 150)
+                }
+              }
+              publishDate(formatString: "", locale: "")
+              slug
+              title
+              featuredImage {
+                file {
+                  url
+                }
+                fluid(maxWidth: 750) {
+                  base64
+                  tracedSVG
+                  srcWebp
+                  srcSetWebp
+                }
+              }
+              createdAt(fromNow: true)
+            }
+          }
+        }
+      }
+    `
+  )
+
+return (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <PageContainer >
@@ -99,13 +217,63 @@ const IndexPage = () => (
           />
       </RightContainer>
     </PageContainer>
+    <div style={{marginTop: '2em'}}>
+      <Posts>
+        {data.allContentfulBlogPost.edges.map(edge => {
+          return (
+            
+            <Post key={edge.node.id}>
+              <Title>
+                <Link to={`/blog/${edge.node.slug}/`}>{edge.node.title}</Link>
+              </Title>
+              <Date>
+                <CreatedAt>Posted {edge.node.createdAt}</CreatedAt>
+              </Date>
+              {edge.node.featuredImage && (
+                <FeaturedImage>
+                <Image
+                  src={edge.node.featuredImage.file.url}
+                  alt={edge.node.title}
+                />
+                </FeaturedImage>
+                
+                
+              )}
+               <ExcerptDiv>
+                  <Excerpt>
+                    {edge.node.exerpt.childMarkdownRemark.excerpt}
+                  </Excerpt>
+                 </ExcerptDiv>             
+              
+              <DivButton>
+              <ReadMore primary>
+                <Link to={`/blog/${edge.node.slug}/`} style={{textDecoration: 'none'}}>Continue reading...</Link>
+              </ReadMore>
+              </DivButton>
+              
+              
+              
+            </Post>
+            
+
+          )
+        })}
+      </Posts>
+      {/* <FooterDiv>
+        <Footer>
+            Built with love by Kibuika.
+            
+        </Footer>
+      </FooterDiv> */}
+      </div>
       <FooterDiv>
         <Footer>
-            © {new Date().getFullYear()}, Built with love by Kibuika.
+            {/* © {new Date().getFullYear()}, Built with love by Kibuika. */}
             {/* {` `}
             <a href="https://www.gatsbyjs.org">Gatsby</a> */}
         </Footer>
       </FooterDiv>
   </Layout>
-);
+)
+}
 export default IndexPage;
