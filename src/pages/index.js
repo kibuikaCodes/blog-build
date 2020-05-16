@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import styled from "styled-components";
-import IntroImage from "../images/indexImage.svg";
+import HeaderImage from '../images/blog-header-python.jpg';
 import { useStaticQuery, graphql } from "gatsby"
 
 
@@ -13,6 +13,8 @@ const PageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   align-content: center;
+  position: relative;
+  color: white;
 `;
 
 
@@ -20,7 +22,9 @@ const Title = styled.h1`
   font-size: 6vw;
   font-style: regular;
   font-weight: 800;
-  margin-top: 1em;
+  position: absolute;
+  margin-top: 3em;
+  
 `;
 
 const Tagline = styled.p`
@@ -31,6 +35,7 @@ const Tagline = styled.p`
   align-items: center;
   justify-content: center;
   display: flex;
+  position: absolute;
 `;
 
 const DivButton = styled.div`
@@ -46,6 +51,7 @@ const ReadMore = styled.button`
   padding: 0.25em 1em;
   border: 2px solid #663399;
   border-radius: 3px;
+  position: absolute;
     
 `;
 
@@ -190,16 +196,12 @@ const IndexPage = () => {
   )
 
 return (
-  <Layout>
+  <div>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <PageContainer >
-      <Title>Hello There</Title>
-        <Tagline>Welcome my little corner of the web..<br />Welcome my little corner of the web..<br />Welcome my little corner of the web..</Tagline>
-        <DivButton>
-            <ReadMore>
-                <Link to={`/blog/`} style={{textDecoration: 'none'}}>Read my stuff</Link>
-            </ReadMore>
-        </DivButton>
+    <PageContainer>
+    <img src={HeaderImage} alt='' style={{height: '100vh', width: '100vw', filter: 'brightness(50%)'}}/>
+      <Title>Code Matata</Title>
+      <p style={{position: 'absolute', marginTop: '19em', fontStyle:"regular", fontWeight:'500'}}>Code that matters</p>
     </PageContainer>
     <div style={{marginTop: '2em'}}>
       <Posts>
@@ -251,7 +253,7 @@ return (
             <a href="https://www.gatsbyjs.org">Gatsby</a> */}
         </Footer>
       </FooterDiv>
-  </Layout>
+  </div>
 )
 }
 export default IndexPage;
