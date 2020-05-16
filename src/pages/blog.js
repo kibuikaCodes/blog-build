@@ -6,32 +6,32 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import SEO from "../components/seo"
 import styled from "styled-components";
 
-const Back = styled.div`
-  font-size: 1em;
-  font-style: regular;
-  font-weight: bold;
-  text-decoration: none;
-  float: right;
-  margin-right: 2em;
-  margin-bottom: 2em;
-`;
+// const Back = styled.div`
+//   font-size: 1em;
+//   font-style: regular;
+//   font-weight: bold;
+//   text-decoration: none;
+//   float: right;
+//   margin-right: 2em;
+//   margin-bottom: 2em;
+// `;
 
 const Posts = styled.div`
  display: flex;
- flex-flow: row wrap;
- justify-content: center;
+ flex-flow: column wrap;
+ justify-content: space-evenly;
  align-items: center;
  align-content: center;
 `;
 
 const Post = styled.div`
   padding-bottom: 40px;
-  margin-bottom: 2em;
+  margin-bottom: 16em;
   transition: 0.3s;
-  width: 30rem;
+  width: 60rem;
   height: 18rem;
   margin-top: 1em;
-  margin-left: 1em;
+ 
 `;
 
 const Title = styled.h2`
@@ -150,9 +150,10 @@ const Blog = () => {
   return (
     <div style={{margin: '2em'}}>
       <SEO title="Blog" />
-      <Back>
-        <Link to="/" style={{textDecoration: 'none', paddingBottom: '1em'}}>&#8249;Back</Link>
-      </Back>
+      {/* <Back> */}
+        <Link to="/" style={{textDecoration: 'none', paddingBottom: '1em', float:"right", marginBottom:"1em"}}>&#8249;Back</Link>
+      {/* </Back> */}
+      <div style={{marginTop: '2em'}}>
       <Posts>
         {data.allContentfulBlogPost.edges.map(edge => {
           return (
@@ -194,13 +195,13 @@ const Blog = () => {
           )
         })}
       </Posts>
-      <FooterDiv>
+      {/* <FooterDiv>
         <Footer>
             Built with love by Kibuika.
-            {/* {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a> */}
+            
         </Footer>
-      </FooterDiv>
+      </FooterDiv> */}
+      </div>
       
     </div>
   )
