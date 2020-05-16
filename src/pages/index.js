@@ -8,21 +8,13 @@ import { useStaticQuery, graphql } from "gatsby"
 
 
 const PageContainer = styled.div`
-margin-bottom: 2em;
-display: flex;
-flex-direction: row
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 `;
 
-const RightContainer = styled.div`
-// float: right;
-
-`;
-
-const LeftContainer = styled.div`
-// float: left;
-margin-right: 2em;
-
-`;
 
 const Title = styled.h1`
   font-size: 6vw;
@@ -201,7 +193,6 @@ return (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <PageContainer >
-      <LeftContainer>
       <Title>Hello There</Title>
         <Tagline>Welcome my little corner of the web..<br />Welcome my little corner of the web..<br />Welcome my little corner of the web..</Tagline>
         <DivButton>
@@ -209,13 +200,6 @@ return (
                 <Link to={`/blog/`} style={{textDecoration: 'none'}}>Read my stuff</Link>
             </ReadMore>
         </DivButton>
-      </LeftContainer>
-      <RightContainer>
-        <Image
-            src={IntroImage}
-            alt='hey'
-          />
-      </RightContainer>
     </PageContainer>
     <div style={{marginTop: '2em'}}>
       <Posts>
@@ -259,12 +243,6 @@ return (
           )
         })}
       </Posts>
-      {/* <FooterDiv>
-        <Footer>
-            Built with love by Kibuika.
-            
-        </Footer>
-      </FooterDiv> */}
       </div>
       <FooterDiv>
         <Footer>
