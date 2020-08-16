@@ -3,57 +3,9 @@ import { Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import styled from "styled-components";
-import HeaderImage from '../images/blog-header-python.jpg';
 import { useStaticQuery, graphql } from "gatsby"
 
 
-const PageContainer = styled.div`
-  margin-bottom: 2em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
-  position: relative;
-  color: white;
-`;
-
-
-const Title = styled.h1`
-  font-size: 6vw;
-  font-style: regular;
-  font-weight: 800;
-  position: absolute;
-  margin-top: 3em;
-  
-`;
-
-const Tagline = styled.p`
-  font-size: 1.5vw;
-  font-style: regular;
-  font-family: verdana;
-  margin-top: 1em;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  position: absolute;
-`;
-
-const DivButton = styled.div`
-  align-items: center;
-  justify-content: center;
-  display: flex;
-`;
-
-const ReadMore = styled.button`
-  background: white;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid #663399;
-  border-radius: 3px;
-  position: absolute;
-    
-`;
 
 const FooterDiv = styled.div`
   align-items: center;
@@ -69,94 +21,66 @@ const Footer = styled.footer`
   font-size: 1vw;
 `;
 
-const Image = styled.img`
-    height: 10em;
-    weight: 10em;
-    margin-top: 7.5em;
-    margin-right: 3em;
-    margin-left: 2em;
-    
+
+// new styles
+const Main = styled.div`
+  height: auto;
+  
 `;
 
-// testing
-const Posts = styled.div`
- display: flex;
- flex-flow: column wrap;
- justify-content: space-evenly;
- align-items: center;
- align-content: center;
+const PostsDiv = styled.div`
+  padding: 3em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Post = styled.div`
-  padding-bottom: 40px;
-  margin-bottom: 16em;
-  transition: 0.3s;
-  width: 60rem;
-  height: 18rem;
+  height: auto;
+  width: auto;
+  padding: .5em;
   margin-top: 1em;
- 
-`;
-
-// const Title = styled.h2`
-//   align-items: center;
-//   justify-content: center;
-//   display: flex;
-//   font-size: 2.4vw;
-//   font-weight: 900;
-//   font-style: regular;
-// `;
-
-const Date = styled.div`
-  align-items: center;
-  justify-content: center;
   display: flex;
-`;
-
-const CreatedAt = styled.span`
-  margin-top: .0009em;
-  font-size: .7em;
-  font-style: italic;
-`;
-
-const FeaturedImage = styled.div`
+  flex-flow: row nowrap;
   align-items: center;
-  justify-content: center;
-  display: flex;
+  justify-content: flex-start;
+  border-bottom: 1px solid black;
 `;
 
-// const Image = styled.img`
-//   width: 50%;
-//   height: 10%;
-// `;
-
-const ExcerptDiv = styled.div`
-  align-items: center;
-  justify-content: center;
-  display: flex;
+const PostImageDiv = styled.div`
+  height: 10em;
+  width: 12em;
 `;
 
-const Excerpt = styled.p`
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  width: 50%;
+const Image = styled.img`
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 `;
 
-// const DivButton = styled.div`
-//   align-items: center;
-//   justify-content: center;
-//   display: flex;
-// `;
+const PostTextDiv = styled.div`
+  height: 10em;
+  width: 40em;
+  margin-left: .5em;
+  display: flex;
+  flex-flow: column nowrap;
+  
+`;
 
-// const ReadMore = styled.button`
-    
-//   background: white;
-//   font-size: 1em;
-//   margin: 1em;
-//   padding: 0.25em 1em;
-//   border: 2px solid #663399;
-//   border-radius: 3px;
-// `;
+const PostTitle = styled.h2`
+  font-size: 1.5em;
+  font-weight: 700;
+`;
+
+
+const PostExcerpt = styled.p`
+  font-size: 1em;
+  font-weight: 300;
+`;
+
+
+
 
 
 
@@ -195,65 +119,46 @@ const IndexPage = () => {
     `
   )
 
-return (
-  <div>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <PageContainer>
-    <img src={HeaderImage} alt='' style={{height: '100vh', width: '100vw', filter: 'brightness(50%)'}}/>
-      <Title>Code Matata</Title>
-      <p style={{position: 'absolute', marginTop: '19em', fontStyle:"regular", fontWeight:'500'}}>Code that matters</p>
-    </PageContainer>
-    <div style={{marginTop: '2em'}}>
-      <Posts>
-        {data.allContentfulBlogPost.edges.map(edge => {
-          return (
-            
-            <Post key={edge.node.id}>
-              <Title>
-                <Link to={`/blog/${edge.node.slug}/`}>{edge.node.title}</Link>
-              </Title>
-              <Date>
-                <CreatedAt>Posted {edge.node.createdAt}</CreatedAt>
-              </Date>
-              {edge.node.featuredImage && (
-                <FeaturedImage>
-                <Image
-                  src={edge.node.featuredImage.file.url}
-                  alt={edge.node.title}
-                />
-                </FeaturedImage>
-                
-                
-              )}
-               <ExcerptDiv>
-                  <Excerpt>
-                    {edge.node.exerpt.childMarkdownRemark.excerpt}
-                  </Excerpt>
-                 </ExcerptDiv>             
+  return (
+    <div>
+      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <Main>
+        <PostsDiv>
+          {data.allContentfulBlogPost.edges.map(edge => {
+            return (
+              <Post key={edge.node.id}>
+                <PostImageDiv>
+                  <Image
+                    src={edge.node.featuredImage.file.url}
+                    alt={edge.node.title}
+                  ></Image>
+                </PostImageDiv>
+                <PostTextDiv>
+                  <PostTitle>
+                  {edge.node.title}
+                  </PostTitle>
+                  <PostExcerpt>
+                  {edge.node.exerpt.childMarkdownRemark.excerpt}
+                  </PostExcerpt>
+                  <Link to={`/blog/${edge.node.slug}/`} style={{textDecoration: 'none', alignSelf: 'flex-end'}}>Continue reading...</Link>
+                </PostTextDiv>
+              </Post>
               
-              <DivButton>
-              <ReadMore primary>
-                <Link to={`/blog/${edge.node.slug}/`} style={{textDecoration: 'none'}}>Continue reading...</Link>
-              </ReadMore>
-              </DivButton>
-              
-              
-              
-            </Post>
-            
 
-          )
-        })}
-      </Posts>
-      </div>
+            )
+          })}
+        </PostsDiv>
+
+      </Main>
+
       <FooterDiv>
         <Footer>
-            {/* © {new Date().getFullYear()}, Built with love by Kibuika. */}
-            {/* {` `}
+          {/* © {new Date().getFullYear()}, Built with love by Kibuika. */}
+          {/* {` `}
             <a href="https://www.gatsbyjs.org">Gatsby</a> */}
         </Footer>
       </FooterDiv>
-  </div>
-)
+    </div>
+  )
 }
 export default IndexPage;

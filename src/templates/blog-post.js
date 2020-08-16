@@ -15,6 +15,11 @@ const Back = styled.p`
   float: right;
 `;
 
+const Title = styled.h1`
+  font-size: 2.6em;
+  font-weight: 700;
+`;
+
 const Date = styled.p`
   margin-bottom: 1.5em;
   font-style: italic;
@@ -68,10 +73,10 @@ const BlogPost = props => {
     <Layout>
       <SEO title={props.data.contentfulBlogPost.title} />
       <Back>
-        <Link to="/blog/" style={{textDecoration: 'none'}}>&#8249;Back</Link>
+        <Link to="/" style={{textDecoration: 'none'}}>&#8249;Back</Link>
       </Back>
       <div className="content">
-        <h1>{props.data.contentfulBlogPost.title}</h1>
+        <Title>{props.data.contentfulBlogPost.title}</Title>
         <Date>
             Posted on{` `}{props.data.contentfulBlogPost.publishDate}
         </Date>
